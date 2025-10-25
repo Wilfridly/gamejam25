@@ -10,14 +10,7 @@ public class move_player : MonoBehaviour
     
     private Vector3 velocity = Vector3.zero; 
         
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   /*
-   void Start()
-    {
-        
-    }
-    */
+
     // Update is called once per frame %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     void Update()
     {
@@ -33,21 +26,14 @@ public class move_player : MonoBehaviour
         
         // Links Movement Applicaion to the Animator ---------------------------
         // => due to x and y possible negatives negatives values :
-        float character_velocity = Mathf.Abs(10*Rb.linearVelocity.x + Rb.linearVelocity.y );
-        // => link to animator :
-        animator.SetFloat("speed", character_velocity);
-        
-        
+        // float character_velocity = Mathf.Abs(10*Rb.linearVelocity.x + Rb.linearVelocity.y );
+        // // => link to animator :
+        // animator.SetFloat("speed", character_velocity);
+        UpdateAnimator(horizontalMovement, verticalMovement);
         
     } // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
-    
-    
-    
-    
-    
-    
-    
+ 
     
     // Movement Application to the RB ---------------------------------
     void Move( float _horizontalMovement, float _verticalMovement)
@@ -78,14 +64,31 @@ public class move_player : MonoBehaviour
     
     }
     
-    
-    
+        void UpdateAnimator(float horizontal, float vertical)
+    {
+        // Déterminer l'état selon la direction dominante
+        if (Mathf.Abs(horizontal) > Mathf.Abs(vertical))
+        {
+            // Côté
+            animator.SetInteger("direction", 2);
+        }
+        else if (vertical > 0.1f)
+        {
+            // Haut
+            animator.SetInteger("direction", 1);
+        }
+        else if (vertical < -0.1f)
+        {
+            // Bas
+            animator.SetInteger("direction", 0);
+        }
+        
+        // Optionnel : vitesse pour blend
+        float speed = new Vector2(horizontal, vertical).magnitude;
+        animator.SetFloat("speed", speed);
+    }
     
 
-    
-    
-    
-    
 }
 
 
