@@ -43,12 +43,17 @@ public class SwapHandler : MonoBehaviour
             //Todo add visuals if no swap possible?
             return;
         }
+        // decrement le numbre de switches possibles avant agression
+        npc.GetComponent<Enemy_Patrol>().switches = npc.GetComponent<Enemy_Patrol>().switches -1;
+        
+        
         SpriteRenderer npcRender = npc.GetComponent<SpriteRenderer>();
         Vector3 npcPos = npc.transform.position;
 
         // Set new positions
         player.transform.position = npcPos;
         npc.transform.position = playerPos;
+        
         
         
         // Get sprite components

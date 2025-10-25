@@ -11,7 +11,11 @@ public class Enemy_Patrol : MonoBehaviour
     public SpriteRenderer graphic; 
     
     // mode chasse du joueur
+    public bool is_aware        = false;
+    
+    public int switches      = 3;
     public bool is_agressive = false;
+   
     
     private Transform player;                 // Drag & drop dans l'Inspector
     public string playerTag = "Player";      // ou trouve par Tag
@@ -19,7 +23,7 @@ public class Enemy_Patrol : MonoBehaviour
     public Rigidbody2D Rb;      // hitbox object
     public Animator animator;   // animator object
     
-    
+    public GameManager gm;
     
     
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,7 +38,11 @@ public class Enemy_Patrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (switches <= 0 )
+        {
+        is_agressive = true;
         
+        }
     
         // Direction computation
         Vector3 dir = target.position - transform.position;
@@ -94,10 +102,14 @@ public class Enemy_Patrol : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // si c'est le joueur qui entre en collision avec l'object alors :
+        // si c'est le joueur qui entre en collision a vec l'object alors :
         if(collision.gameObject.CompareTag("Player"))
         {
-           //is_agressive = true;
+           if(is_agressive)
+           {
+            Destroy(collision.gameObject);
+            gm.LoseGame();
+           } 
            //move_speed   = 3; 
         }
         
