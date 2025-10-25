@@ -16,6 +16,9 @@ public class Enemy_Patrol : MonoBehaviour
     private Transform player;                 // Drag & drop dans l'Inspector
     public string playerTag = "Player";      // ou trouve par Tag
     
+    public Rigidbody2D Rb;      // hitbox object
+    public Animator animator;   // animator object
+    
     
     
     
