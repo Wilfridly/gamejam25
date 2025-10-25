@@ -64,7 +64,7 @@ public class move_player : MonoBehaviour
     
     }
     
-        void UpdateAnimator(float horizontal, float vertical)
+    void UpdateAnimator(float horizontal, float vertical)
     {
         // Déterminer l'état selon la direction dominante
         if (Mathf.Abs(horizontal) > Mathf.Abs(vertical))
