@@ -11,4 +11,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Lost");
     }
+    
+    public void WinGame()
+    {
+        SceneManager.LoadScene("Win");
+    }
 }

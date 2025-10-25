@@ -102,36 +102,43 @@ public class Enemy_Patrol : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // si c'est le joueur qui entre en collision a vec l'object alors :
-        if(collision.gameObject.CompareTag("Player"))
-        {
-           if(is_agressive)
-           {
-            Destroy(collision.gameObject);
-            gm.LoseGame();
-           } 
-           //move_speed   = 3; 
-        }
+        if (collision != null){
         
-        
-        // ================================================================== //
-        // Effet de profondeur lors d'une collision avec un autre objet
-        var otherSR = collision.GetComponentInChildren<SpriteRenderer>();
-        if (otherSR == null || graphic == null) return;
-        
-        float delta_Y = collision.transform.position.y - transform.position.y;
+            // ================================================================== //
+            // Effet de profondeur lors d'une collision avec un autre objet
+            var otherSR = collision.GetComponentInChildren<SpriteRenderer>();
+            if (otherSR == null || graphic == null) return;
+            
+            float delta_Y = collision.transform.position.y - transform.position.y;
 
-        if (delta_Y < 0) {
-               // enemy passe derriere
-               graphic.sortingLayerID = otherSR.sortingLayerID;
-               graphic.sortingOrder   = otherSR.sortingOrder - 1;
-               
-        } else {
-               // enemy passe devant
-               graphic.sortingLayerID = otherSR.sortingLayerID;
-               graphic.sortingOrder   = otherSR.sortingOrder + 1;
+            if (delta_Y < 0) {
+                   // enemy passe derriere
+                   graphic.sortingLayerID = otherSR.sortingLayerID;
+                   graphic.sortingOrder   = otherSR.sortingOrder - 1;
+                   
+            } else {
+                   // enemy passe devant
+                   graphic.sortingLayerID = otherSR.sortingLayerID;
+                   graphic.sortingOrder   = otherSR.sortingOrder + 1;
+            }
+            // ================================================================== //
+            
+            
+            
+            // si c'est le joueur qui entre en collision a vec l'object alors :
+            if(collision.gameObject.CompareTag("Player"))
+            {
+               if(is_agressive)
+               {
+               // Destroy(collision.gameObject);
+                gm.LoseGame();
+               } 
+               //move_speed   = 3; 
+            }
         }
-        // ================================================================== //
+        
+        
+
 
     }
     
