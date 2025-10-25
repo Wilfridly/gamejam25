@@ -3,7 +3,7 @@ using UnityEngine;
 public class move_player : MonoBehaviour
 {
 
-    public float move_speed ;
+    public float move_speed = 500f;
     public Rigidbody2D Rb;      // hitbox object
     public Animator animator;   // animator object
     public SpriteRenderer SpriteRenderer; 
@@ -90,27 +90,4 @@ public class move_player : MonoBehaviour
     
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
