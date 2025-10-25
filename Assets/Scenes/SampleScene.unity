@@ -149,9 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwapHandler
   player: {fileID: 354592232}
-  npc: {fileID: 1848588942}
   playerRender: {fileID: 0}
-  npcRender: {fileID: 0}
 --- !u!4 &350845326
 Transform:
   m_ObjectHideFlags: 0
@@ -2138,7 +2136,7 @@ GameObject:
   - component: {fileID: 1407877804}
   m_Layer: 0
   m_Name: jardinier
-  m_TagString: Untagged
+  m_TagString: Swappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23287,7 +23285,7 @@ GameObject:
   - component: {fileID: 1848588948}
   m_Layer: 0
   m_Name: jardinier
-  m_TagString: Untagged
+  m_TagString: Swappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
