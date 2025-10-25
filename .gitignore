@@ -1,0 +1,53 @@
+# ========== Unity Generated ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# Autres dossiers temporaires
+UserSettings/
+MemoryCaptures/
+sysinfo.txt
+
+# ========== OS Specific ==========
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ========== Visual Studio / IDE ==========
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+*.pidb.meta
+
+# Rider
+.idea/
+*.sln.iml
+
+# ========== Autres fichiers à ignorer ==========
+*.log
+*.obj
+*.cache
+*.apk
+*.aab
+*.unitypackage
